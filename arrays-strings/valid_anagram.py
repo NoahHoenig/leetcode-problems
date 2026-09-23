@@ -1,0 +1,24 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+
+        #from collections import Counter
+        #return(Counter(s) ==  Counter(t))
+           
+        #return sorted(s) == sorted(t)
+        
+        if len(s) != len(t):
+            return False
+        
+        freq = [0] * 26
+
+        for i in range(len(s)) :
+            freq[ord(s[i].lower())-ord('a')] += 1
+            freq[ord(t[i].lower())-ord('a')] -= 1
+        
+        for i in freq:
+            if i != 0:
+                return False
+        return True
+
+solution = Solution()
+print(solution.isAnagram("anagram","nagaram"))
